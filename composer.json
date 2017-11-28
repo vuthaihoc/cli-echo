@@ -1,0 +1,17 @@
+{
+    "name": "vuh/cli-echo",
+    "description": "Simple class to print message with style from anywhere",
+    "type": "lib",
+    "authors": [
+        {
+            "name": "Vu Thai Hoc",
+            "email": "vuthaihoc.ttud@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "src" : "Vuh\\CliEcho"
+        }
+    }
+}
