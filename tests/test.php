@@ -14,8 +14,63 @@ try{
 		$rd = rand(0, 3);
 		$type = $types[$rd];
 		Vuh\CliEcho\CliEcho::{$type . "nl"}("Showing message type " . $type . " with CliEcho");
-		sleep(3);
+		// sleep(3);
 	}
 }catch(\Exception $ex){
 	echo $ex->getMessage();
+}
+
+Echo "\nTest verbose V_ERROR\n";
+Vuh\CliEcho\CliEcho::setVerbose(Vuh\CliEcho\CliEcho::V_ERROR);
+try{
+    for ($i=0; $i < 10; $i++) { 
+        $rd = rand(0, 3);
+        $type = $types[$rd];
+        Vuh\CliEcho\CliEcho::{$type . "nl"}("Showing message type " . $type . " with CliEcho");
+        // sleep(3);
+    }
+}catch(\Exception $ex){
+    echo $ex->getMessage();
+}
+
+
+Echo "\nTest verbose V_WARNING \n";
+Vuh\CliEcho\CliEcho::setVerbose(Vuh\CliEcho\CliEcho::V_WARNING);
+try{
+    for ($i=0; $i < 10; $i++) { 
+        $rd = rand(0, 3);
+        $type = $types[$rd];
+        Vuh\CliEcho\CliEcho::{$type . "nl"}("Showing message type " . $type . " with CliEcho");
+        // sleep(3);
+    }
+}catch(\Exception $ex){
+    echo $ex->getMessage();
+}
+
+
+Echo "\nTest verbose V_INFO\n";
+Vuh\CliEcho\CliEcho::setVerbose(Vuh\CliEcho\CliEcho::V_INFO);
+try{
+    for ($i=0; $i < 10; $i++) { 
+        $rd = rand(0, 3);
+        $type = $types[$rd];
+        Vuh\CliEcho\CliEcho::{$type . "nl"}("Showing message type " . $type . " with CliEcho");
+        // sleep(3);
+    }
+}catch(\Exception $ex){
+    echo $ex->getMessage();
+}
+
+
+Echo "\nTest verbose V_NONE\n";
+Vuh\CliEcho\CliEcho::setVerbose(Vuh\CliEcho\CliEcho::V_NONE);
+try{
+    for ($i=0; $i < 10; $i++) { 
+        $rd = rand(0, 3);
+        $type = $types[$rd];
+        Vuh\CliEcho\CliEcho::{$type . "nl"}("Showing message type " . $type . " with CliEcho");
+        // sleep(3);
+    }
+}catch(\Exception $ex){
+    echo $ex->getMessage();
 }

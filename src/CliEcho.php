@@ -13,7 +13,20 @@ class CliEcho {
 	const SUCCESS='success';
 	const ERROR='error';
 	
+	const V_NONE = 1000;
+	const V_INFO=0;
+	const V_SUCCESS=0;
+	const V_WARNING=10;
+	const V_ERROR=100;
+	
+	private static $min_verbose = 0;
 	private static $flush_enable = false;
+	private static $type_verbose = [ 
+			'info' => 0, 
+			'success' => 0, 
+			'warning' => 10, 
+			'error' => 100
+		];
 	
 	/**
 	 * Enable flush mode
@@ -28,6 +41,14 @@ class CliEcho {
 	}
 	
 	/**
+	 * Setmin verbose to print important log only
+	 * @param [type] $min_verbose [description]
+	 */
+	public static function setVerbose($min_verbose){
+		self::$min_verbose = $min_verbose;
+	}
+	
+	/**
 	 * Base function to show message with all options can be modified
 	 * @param  string  $message Message content
 	 * @param  string  $type    Type of message
@@ -36,6 +57,10 @@ class CliEcho {
 	 * @return string|void      
 	 */
 	public static function comment($message, $type = 'info', $newline = false, $return = false){
+		$verbose = isset(self::$type_verbose[$type]) ? self::$type_verbose[$type] : 0;
+		if($verbose < self::$min_verbose){
+			return;
+		}
 		if(self::$flush_enable && ob_get_level() == 0){
 			ob_start();
 		}
